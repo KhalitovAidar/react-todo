@@ -12,7 +12,6 @@ const Todo = ({ todo, deleteTodo, toggleTodo }) => {
     >
       <RiTodoFill className={styles.todoIcon} />
       <div className={styles.todoText}>{todo.text}</div>
-      <div>{console.log(todo.isComplited)}</div>
       <RiDeleteBin2Line
         className={styles.deleteIcon}
         onClick={() => deleteTodo(todo.id)}

@@ -29,11 +29,29 @@ function App() {
     setTodos(newMass);
   };
 
+  const resetTodosHandler = () => {
+    setTodos([]);
+  };
+
+  const deleteComplitedTodoshandler = () => {
+    setTodos(todos.filter((todo) => !todo.isComplited));
+  };
+
+  console.log('Rerendering');
+
+  const countOfCompletedTodo = todos.filter((todo) => todo.isComplited).length;
+
   return (
     <div className="App">
       <h1>Todo App</h1>
       <TodoForm addTodo={addTodoHandler} />
-      <TodosActions />
+      {!!todos.length && (
+        <TodosActions
+          resetTodos={resetTodosHandler}
+          deleteComplited={deleteComplitedTodoshandler}
+          countOfCompletedTodo={!!countOfCompletedTodo}
+        />
+      )}
       {todos.length === 0 ? (
         <h2>Todo list is empty </h2>
       ) : (
