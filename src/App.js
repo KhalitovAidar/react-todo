@@ -61,6 +61,11 @@ function App() {
           toggleTodo={toggleTodo}
         />
       )}
+      {countOfCompletedTodo > 0 ? (
+        <h2>{`You have completed ${countOfCompletedTodo} todos`}</h2>
+      ) : (
+        ''
+      )}
     </div>
   );
 }
